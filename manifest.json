@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Facebook Auto Poster & UI Assistant",
+  "version": "1.4.0",
+  "description": "Premium glassmorphism UI for automated multi-group Facebook posting with cron scheduler and manual helper.",
+  "permissions": [
+    "activeTab",
+    "alarms",
+    "clipboardRead",
+    "clipboardWrite",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.facebook.com/*"
+  ],
+  "action": {
+    "default_title": "Facebook Auto Poster",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.facebook.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
